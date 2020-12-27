@@ -1,0 +1,17 @@
+var
+  xCaptcha : TSb2Captcha;
+  xStrResult : String;
+begin
+  xCaptcha := TSb2Captcha.Create(Self);
+  try
+    xCaptcha.ApiKey := ''; // 2Captcha Api Key
+    xCaptcha.ImgBase64 := ''; // Img To Base64
+    xStrResult := xCaptcha.GetCaptchaBase64;
+
+    // Process Captcha
+
+    xCaptcha.SetReport(True); // Report Captcha Success Decode
+  finally
+    FreeAndNil(xCaptcha)
+  end;
+end;
